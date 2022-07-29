@@ -2,7 +2,9 @@
 const section=document.querySelector('section')
 const playerLivesCount=document.querySelector('span')
 let playerLives=6
-
+let winningMessageTextElement=document.querySelector('[data-winning-message-text]')
+let winningMessageElement=document.querySelector('#winningMessage')
+const restartButton=document.getElementById('restartButton')
 playerLivesCount.innerHTML=playerLives
 
 const getData=()=>[
@@ -87,14 +89,16 @@ const checkCards=(e)=>{
         console.log(playerLives)
         playerLivesCount.innerHTML=playerLives
         if(playerLives===0){
-          alert("YOU LOST...CLICK OK TO RESTART")
-          setTimeout(restart,500)
+          endGame(true)
+          // alert("YOU LOST...CLICK OK TO RESTART")
+          // setTimeout(restart,500)
         }
         }
 
         if(toggleCards.length===16)
         { 
-          setTimeout(()=>{ alert("YOU WIN")},1500)
+          endGame(false)
+          // setTimeout(()=>{ alert("YOU WIN")},1500)
         }
 
     }
@@ -105,3 +109,13 @@ const restart=()=>{
 }
 
 cardGenerator()
+
+function endGame(lost){
+  if(lost){
+    winningMessageTextElement.innerHTML=`YOU LOST`
+  }else {
+    winningMessageTextElement.innerHTML=`You Win!`
+  }
+  winningMessageElement.classList.add('show')
+  restartButton.addEventListener('click',restart)
+}
