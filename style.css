@@ -59,3 +59,23 @@ section{
 .result{
   background-color: yellow;
 }
+.unclickable{
+  pointer-events: none;
+}
+
+@media(max-width:490px){
+  section{
+    grid-template-columns: repeat(4,8rem);
+    grid-template-rows: repeat(4,8rem);
+  }
+}
+
+@media(max-width:400px){
+  section{
+    display: grid;
+    grid-template-columns: repeat(4,6rem);
+    grid-template-rows: repeat(4,6rem);
+    gap: 2rem;
+    perspective: 800px;
+  }
+}

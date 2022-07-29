@@ -58,6 +58,7 @@ const cardGenerator=()=>{
 }
 
 const checkCards=(e)=>{
+  const cards=document.querySelectorAll('.card')
   const clickedCard=e
   console.log(clickedCard)
   clickedCard.classList.add('flipped')
@@ -65,6 +66,10 @@ const checkCards=(e)=>{
   const toggleCards=document.querySelectorAll('.toggleCard')
 
     if(flippedCards.length===2){
+      cards.forEach(card=>{
+        card.classList.add('unclickable')
+        setTimeout(()=>card.classList.remove('unclickable'),1100)
+      })
       if(flippedCards[0].getAttribute('name')===flippedCards[1].getAttribute('name')){
         console.log('match')
         flippedCards.forEach(card=>{
