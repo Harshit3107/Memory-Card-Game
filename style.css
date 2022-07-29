@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+*{
+  margin: 0;  
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+html{
+  font-size: 62.5%;
+  background: #6190E8;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+
+}
+
+section{
+  display: grid;
+  grid-template-columns: repeat(4,10rem);
+  grid-template-rows: repeat(4,10rem);
+  gap: 2rem;
+  perspective: 800px;
+}
+
+.card{
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 2s ease;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 2px;
+  cursor: pointer;
+}
+
+.face,
+.back{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.back{
+  background: white;
+  backface-visibility: hidden;
+}
+
+.toggleCard {
+  transform: rotateY(180deg);
+}
+
+.result{
+  background-color: yellow;
+}
