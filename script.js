@@ -110,6 +110,8 @@ const restart=()=>{
 
 cardGenerator()
 
+restartButton.addEventListener('click',restart)
+
 function endGame(lost){
   if(lost){
     winningMessageTextElement.innerHTML=`YOU LOST`
@@ -117,5 +119,4 @@ function endGame(lost){
     winningMessageTextElement.innerHTML=`You Win!`
   }
   winningMessageElement.classList.add('show')
-  restartButton.addEventListener('click',restart)
 }
